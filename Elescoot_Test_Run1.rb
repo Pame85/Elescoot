@@ -149,59 +149,64 @@ class PricingSystem
       end
       return cost
     end
-  end
 end
 
-Begin
-  def self.run
-    puts "Welcome to the Elescoot scooter system!"
+def new_customer
+  puts "Enter your name"
+  answer = gets.chomp
+  puts "Hello #{answer}"
+end
 
-    while true
-      puts "\nWhat would you like to do?"
-      puts "1. Rent a scooter"
-      puts "2. Return a scooter"
-      puts "3. Mark a scooter as broken"
-      puts "4. Repair a scooter"
-      puts "5. Exit"
+def main()
+	loop do
+	new_customer()
+  puts "Welcome to the Elescoot scooter system!"
+  while true
+    puts "\nWhat would you like to do?"
+    puts "1. Rent a scooter"
+    puts "2. Return a scooter"
+    puts "3. Mark a scooter as broken"
+    puts "4. Repair a scooter"
+    puts "5. Exit"
 
-      choice = gets.chomp.to_i
+    choice = gets.chomp.to_i
 
-      case choice
-      when 1
-        puts "Enter your name:"
-        user_name = gets.chomp
-        user = User.new(user_name)
+    case choice
+    when 1
+      puts "Enter your name:"
+      user_name = gets.chomp
+      user = User.new(user_name)
 
-        puts "Enter the location of the scooter:"
-        location = gets.chomp
-        scooter = Scooter.new(location)
+      puts "Enter the location of the scooter:"
+      location = gets.chomp
+      scooter = Scooter.new(location)
 
-        user.rent_scooter(scooter)
-      when 2
-        puts "Enter your name:"
-        user_name = gets.chomp
-        user = User.new(user_name)
+      user.rent_scooter(scooter)
+    when 2
+      puts "Enter your name:"
+      user_name = gets.chomp
+      user = User.new(user_name)
 
-        user.return_scooter
-      when 3
-        puts "Enter the location of the scooter:"
-        location = gets.chomp
-        scooter = Scooter.new(location)
+      user.return_scooter
+    when 3
+      puts "Enter the location of the scooter:"
+      location = gets.chomp
+      scooter = Scooter.new(location)
 
-        scooter.mark_as_broken
-      when 4
-        puts "Enter the location of the scooter:"
-        location = gets.chomp
-        scooter = Scooter.new(location)
+      scooter.mark_as_broken
+    when 4
+      puts "Enter the location of the scooter:"
+      location = gets.chomp
+      scooter = Scooter.new(location)
 
-        scooter.repair
-      when 5
-        puts "Thank you for using the Elescoot scooter system. Goodbye!"
-        break
-      else
-        puts "Invalid choice. Please try again."
-      end
+      scooter.repair
+    when 5
+      puts "Thank you for using the Elescoot scooter system. Goodbye!"
+      break
+    else
+      puts "Invalid choice. Please try again."
+    end
     end
   end
 end
-Scooter.run
+puts main()
